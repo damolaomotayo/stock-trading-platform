@@ -1,0 +1,21 @@
+{
+  "userId": 1,
+  "balance": 15000,
+  "positions": [
+    {
+      "symbol": "AAPL",
+      "quantity": 50,
+      "avgBuyPrice": 145.0
+    },
+    {
+      "symbol": "GOOGL",
+      "quantity": 10,
+      "avgBuyPrice": 2750.0
+    },
+    {
+      "symbol": "TSLA",
+      "quantity": 5,
+      "avgBuyPrice": 700.0
+    }
+  ]
+}
