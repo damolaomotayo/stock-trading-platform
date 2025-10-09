@@ -84,6 +84,7 @@ const LoginPage = () => {
           <SocialButton
             provider="google"
             onClick={(provider) => console.log(`Login with ${provider}`)}
+            variant="outline"
           />
           <SocialButton
             provider="facebook"

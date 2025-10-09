@@ -22,7 +22,6 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       value,
       onChange,
       placeholder,
-      required = false,
       disabled = false,
       error,
       helperText,
@@ -38,7 +37,7 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
     };
 
     return (
-      <div className={`mb-4 ${className}`}>
+      <div className={`mb-2 ${className}`}>
         <label
           htmlFor={inputId}
           className={`block text-sm font-medium mb-2 ${
@@ -46,7 +45,6 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
           }`}
         >
           {label}
-          {required && <span className="text-red-500">*</span>}
         </label>
         <input
           id={inputId}
@@ -55,11 +53,10 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
           value={value}
           onChange={handleChange}
           placeholder={placeholder}
-          required={required}
           disabled={disabled}
           autoComplete={autoComplete}
           className={`
-                        w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-1 transition-colors
+                        w-full px-3 py-1.5 border text-sm rounded-md focus:outline-none focus:ring-2 focus:ring-offset-1 transition-colors
                         ${
                           error
                             ? "border-red-500 focus-ring-red-500 focus:border-red-500"

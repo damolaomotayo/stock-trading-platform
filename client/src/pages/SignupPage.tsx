@@ -66,9 +66,9 @@ const SignUpPage = () => {
 
   return (
     <div className="flex justify-between h-screen">
-      <div className="w-3/4 flex flex-col items-center py-8">
+      <div className="w-3/4 flex flex-col items-center py-4">
         <h1 className="text-4xl font-bold">Join Stockin Dashboard</h1>
-        <h4 className="text-lg pb-8">Sign Up For Free</h4>
+        <h4 className="text-lg pb-4">Sign Up For Free</h4>
         <form onSubmit={handleSubmit} className="w-96">
           <div className="flex gap-4">
             <TextField
@@ -147,7 +147,7 @@ const SignUpPage = () => {
             Get Started
           </button>
         </form>
-        <p className="py-8">OR</p>
+        <p className="py-4">OR</p>
 
         <div className="space-y-3 w-96">
           <SocialButton
