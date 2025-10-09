@@ -11,7 +11,6 @@ function App() {
   const isLoginPage =
     location.pathname === "/login" || location.pathname === "/signup";
 
-  console.log("isLoginPage:", isLoginPage);
   return (
     <div className="flex">
       {!isLoginPage && <Sidebar />}
@@ -22,7 +21,7 @@ function App() {
           <Route path="/market-data" element={<MarketDataPage />} />
           <Route path="/trade" element={<TradePage />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="*" element={<LoginPage />} />
+          <Route path="*" element={<Dashboard />} />
         </Routes>
       </div>
     </div>
