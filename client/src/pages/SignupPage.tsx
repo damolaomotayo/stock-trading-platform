@@ -2,6 +2,8 @@ import { useState } from "react";
 import hero from "../assets/trading.jpg";
 import TextField from "../components/TextField";
 import SocialButton from "../components/SocialButton";
+import Button from "../components/Button";
+import { useNavigate } from "react-router-dom";
 
 interface SignUpFormData {
   firstName: string;
@@ -64,9 +66,11 @@ const SignUpPage = () => {
     }
   };
 
+  const navigate = useNavigate();
+
   return (
     <div className="flex justify-between h-screen">
-      <div className="w-3/4 flex flex-col items-center py-4">
+      <div className="w-3/4 flex flex-col items-center justify-center py-4">
         <h1 className="text-4xl font-bold">Join Stockin Dashboard</h1>
         <h4 className="text-lg pb-4">Sign Up For Free</h4>
         <form onSubmit={handleSubmit} className="w-96">
@@ -129,7 +133,7 @@ const SignUpPage = () => {
             error={errors.password}
             autoComplete="new-password"
           />
-          <input type="checkbox" id="terms" className="mr-2 mb-8" required />
+          <input type="checkbox" id="terms" className="mr-2 mb-4" required />
           <label htmlFor="terms" className="text-sm mb-4">
             I agree to the{" "}
             <a href="#" className="text-blue-600 underline">
@@ -140,12 +144,7 @@ const SignUpPage = () => {
               Privacy Policy
             </a>
           </label>
-          <button
-            type="submit"
-            className="w-full bg-blue-900 text-white py-2 px-4 rounded hover:bg-purple-700 transition-colors rounded-2xl"
-          >
-            Get Started
-          </button>
+          <Button value="Get Started" type="submit" />
         </form>
         <p className="py-4">OR</p>
 
@@ -157,8 +156,19 @@ const SignUpPage = () => {
           />
           <SocialButton
             provider="facebook"
+            variant="outline"
             onClick={(provider) => console.log(`Login with ${provider}`)}
           />
+          <p className="text-center text-md">
+            Already have an account?{" "}
+            <span
+              className="text-blue-500 font-semibold cursor-pointer"
+              onClick={() => navigate("/login")}
+            >
+              {" "}
+              Login
+            </span>
+          </p>
         </div>
       </div>
       <div className="w-1/2">
