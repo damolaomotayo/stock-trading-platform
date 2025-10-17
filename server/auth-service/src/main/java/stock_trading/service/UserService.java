@@ -1,6 +1,7 @@
 package stock_trading.service;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -20,6 +21,7 @@ import stock_trading.util.JwtTokenUtil;
 
 import java.util.HashSet;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -49,7 +51,7 @@ public class UserService {
         LoginRequest loginRequest = LoginRequest
                 .builder()
                 .email(newUser.getEmail())
-                .password(newUser.getPassword())
+                .password(request.getPassword())
                 .build();
 
         return authenticateUser(loginRequest);
@@ -60,6 +62,7 @@ public class UserService {
                 new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
+
         String token = jwtTokenUtil.generateToken(authentication);
 
         return new AuthResponse(token);
@@ -88,6 +91,7 @@ public class UserService {
                 .id(user.getId())
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
+                .username(user.getUsername())
                 .email(user.getEmail())
                 .build();
     }
