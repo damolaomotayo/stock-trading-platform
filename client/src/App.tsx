@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import Sidebar from "./components/Navbar/Sidebar";
 import SignUpPage from "./pages/SignupPage";
 import TopNav from "./components/Navbar/TopNav";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const location = useLocation();
@@ -13,21 +14,24 @@ function App() {
     location.pathname === "/login" || location.pathname === "/signup";
 
   return (
-    <div className="flex h-screen">
-      {!isLoginPage && <Sidebar />}
-      <div className="flex-1 flex flex-col">
-        {!isLoginPage && <TopNav />}
-        <div className="flex-1 overflow-auto">
-          <Routes>
-            <Route path="/signup" element={<SignUpPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/market-data" element={<MarketDataPage />} />
-            <Route path="/trade" element={<TradePage />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="*" element={<Dashboard />} />
-          </Routes>
+    <div className="flex flex-col h-screen">
+      <div className="flex flex-1 ">
+        {!isLoginPage && <Sidebar />}
+        <div className="flex-1 flex flex-col">
+          {!isLoginPage && <TopNav />}
+          <div className="flex-1 overflow-auto">
+            <Routes>
+              <Route path="/signup" element={<SignUpPage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/market-data" element={<MarketDataPage />} />
+              <Route path="/trade" element={<TradePage />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="*" element={<Dashboard />} />
+            </Routes>
+          </div>
         </div>
       </div>
+      {!isLoginPage && <Footer />}
     </div>
   );
 }
